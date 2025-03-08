@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *GetDir(char **args) {
+int GetName(char **args, char **nameOut) {
 	char **pArgs = args;
 	unsigned int count = 0;
 
@@ -16,8 +16,9 @@ char *GetDir(char **args) {
 	if (count > 2) {
 		(void)printf("Too many args passed. Exiting...\r\n");
 		exit(EXIT_FAILURE);
+		return 0;
 	}
-	char *dir = *(++pArgs);
+	*nameOut = *(++pArgs);
 
-	return dir; // Return the arg that was passed
+	return 1; // Return the arg that was passed
 }
