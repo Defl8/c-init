@@ -7,3 +7,4 @@ typedef struct {
 
 // Free all dynamic memory from Project struct
 void FreeProject(Project *proj);
+int GetName(char **args, Project *nameOut);
