@@ -1,9 +1,9 @@
-struct Project {
+typedef struct {
 	char *name;
 	char *dir;
 	char **files;
 	char **folders;
-};
+} Project;
 
 // Free all dynamic memory from Project struct
-void FreeProject(struct Project *proj);
+void FreeProject(Project *proj);
