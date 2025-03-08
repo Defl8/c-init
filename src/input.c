@@ -12,13 +12,19 @@ int GetName(char **args, char **nameOut) {
 		count++;
 	}
 
-	// Exit if there is more than 2, mean more than 1 arg was passed
-	if (count > 2) {
-		(void)printf("Too many args passed. Exiting...\r\n");
-		exit(EXIT_FAILURE);
-		return 0;
+	// If no proj param was passed, prompt the user to enter one
+	if (count > 2 || count) {
+		*nameOut = malloc(100);
+		if (*nameOut == NULL) {
+			(void)printf("Memory allocation failed. Exiting...");
+			exit(EXIT_FAILURE);
+		}
+		(void)printf("Please enter a project name and press ENTER: ");
+		(void)scanf("%s", *nameOut);
+	} else {
+		*nameOut = *(++pArgs); // Read name from the args directly
 	}
-	*nameOut = *(++pArgs);
 
-	return 1; // Return the arg that was passed
+	(void)printf("Got project name: %s\r\n", *nameOut);
+	return 1; // Success
 }

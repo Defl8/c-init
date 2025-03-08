@@ -19,5 +19,4 @@ int main(int argc, char **argv) {
 	char *projName;
 	GetName(argv, &projName);
 	ptrProject->name = projName;
-	(void)printf("Project name is: %s\r\n", ptrProject->name);
 }
